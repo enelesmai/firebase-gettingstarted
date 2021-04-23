@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Firebase 🔥🔥</title>
+</head>
+<body>
+  <h1>Hola Mundo Firebase!</h1>
+</body>
+</html>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyCS_29Cy89r6VQ1Khp5wAOmUB3zsS4zFxs",
+    authDomain: "planeadas-11349.firebaseapp.com",
+    projectId: "planeadas-11349",
+    storageBucket: "planeadas-11349.appspot.com",
+    messagingSenderId: "328269477690",
+    appId: "1:328269477690:web:50060b69d4fabbd46b8203",
+    measurementId: "G-PW2M6R2N71"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  //Insert an article to the database
+  var article_id = 1;
+  var article = {
+   'title': 'Conectar Firebase con tu app de JavaScript',
+  }
+
+  firebase.database().ref('articles/' + article_id).set(article);
+
+  //Retrieving the article
+  firebase.database().ref('articles/' + article_id).once('value').then(
+        function(snapshot){
+                var title = snapshot.val().title;
+                console.log(title);
+        }
+)
+
+</script>
