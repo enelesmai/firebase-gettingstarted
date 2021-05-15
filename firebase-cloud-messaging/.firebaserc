@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "firebaseweb": "fcm-requests",
+    "staging": "fcm-requests"
+  }
+}
